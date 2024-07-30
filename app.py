@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/hello')
 def hello_world():  # put application's code here
-    return 'Hello World!'
+    return 'Hello World New!'
 
 
 @app.route('/api/products', methods=['GET'])
