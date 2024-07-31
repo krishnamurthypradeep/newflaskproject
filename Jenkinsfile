@@ -37,5 +37,19 @@ stages {
             }
 
     	}
+
+    	stage('Docker Build') {
+            steps {
+                script{
+                if(isUnix()){
+                sh "docker build -t kpradeep/newflaskapp ."
+                }
+                else{
+                 bat "docker build -t kpradeep/newflaskapp ."
+                 }
+                 }
+
+            }
+        }
     }
    }
