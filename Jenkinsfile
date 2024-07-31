@@ -62,5 +62,37 @@ stages {
 
             }
     }
+
+    stage('Kubernetes Pod') {
+
+    steps {
+                script{
+ if (isUnix()){
+
+ sh "kubectl apply -f deployment.yaml"
+ } else {
+ bat("kubectl apply -f deployment.yaml")
+ }
+                }
+    }
+
+ }
+
+ stage('Kubernetes Service') {
+
+    steps {
+                script{
+ if (isUnix()){
+
+ sh "kubectl apply -f service.yaml"
+ } else {
+ bat("kubectl apply -f service.yaml")
+ }
+                }
+    }
+
+ }
+
+    }
     }
    }
